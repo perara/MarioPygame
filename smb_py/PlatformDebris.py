@@ -1,6 +1,7 @@
 import pygame as pg
 
-from Const import *
+from . import loaders
+from .Const import *
 
 
 class PlatformDebris(object):
@@ -10,7 +11,7 @@ class PlatformDebris(object):
 
     """
     def __init__(self, x_pos, y_pos):
-        self.image = pg.image.load('images/block_debris0.png').convert_alpha()
+        self.image = loaders.get_image('images/block_debris0.png').convert_alpha()
 
         # 4 different parts
         self.rectangles = [

@@ -1,6 +1,7 @@
 import pygame as pg
 
-from Const import *
+from . import loaders
+from .Const import *
 
 
 class Fireball(object):
@@ -15,13 +16,13 @@ class Fireball(object):
 
         self.current_image = 0
         self.image_tick = 0
-        self.images = [pg.image.load('images/fireball.png').convert_alpha()]
+        self.images = [loaders.get_image('images/fireball.png').convert_alpha()]
         self.images.append(pg.transform.flip(self.images[0], 0, 90))
         self.images.append(pg.transform.flip(self.images[0], 90, 90))
         self.images.append(pg.transform.flip(self.images[0], 90, 0))
-        self.images.append(pg.image.load('images/firework0.png').convert_alpha())
-        self.images.append(pg.image.load('images/firework1.png').convert_alpha())
-        self.images.append(pg.image.load('images/firework2.png').convert_alpha())
+        self.images.append(loaders.get_image('images/firework0.png').convert_alpha())
+        self.images.append(loaders.get_image('images/firework1.png').convert_alpha())
+        self.images.append(loaders.get_image('images/firework2.png').convert_alpha())
 
     def update_image(self, core):
         self.image_tick += 1

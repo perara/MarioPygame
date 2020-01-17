@@ -1,7 +1,7 @@
 import pygame as pg
 
-from Const import *
-from Text import Text
+from .Const import *
+from .Text import Text
 
 
 class LoadingMenu(object):
@@ -12,7 +12,7 @@ class LoadingMenu(object):
         self.text = Text('WORLD ' + core.oWorld.get_name(), 32, (WINDOW_W / 2, WINDOW_H / 2))
 
     def update(self, core):
-        if pg.time.get_ticks() >= self.iTime + (5250 if not self.loadingType else 2500):
+        if pg.time.get_ticks() >= self.iTime + (GAME_TO_MENU if not self.loadingType else MENU_TO_GAME):
             if self.loadingType:
                 core.oMM.currentGameState = 'Game'
                 core.get_sound().play('overworld', 999999, 0.5)

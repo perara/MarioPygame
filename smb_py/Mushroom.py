@@ -1,7 +1,8 @@
 import pygame as pg
 
-from Entity import Entity
-from Const import *
+from . import loaders
+from .Entity import Entity
+from .Const import *
 
 
 class Mushroom(Entity):
@@ -17,7 +18,7 @@ class Mushroom(Entity):
 
         self.spawned = False
         self.spawn_y_offset = 0
-        self.image = pg.image.load('images/mushroom.png').convert_alpha()
+        self.image = loaders.get_image('images/mushroom.png').convert_alpha()
 
     def check_collision_with_player(self, core):
         if self.rect.colliderect(core.get_map().get_player().rect):

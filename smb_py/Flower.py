@@ -1,6 +1,7 @@
 import pygame as pg
 
-from Entity import Entity
+from . import loaders
+from .Entity import Entity
 
 
 class Flower(Entity):
@@ -14,10 +15,10 @@ class Flower(Entity):
         self.current_image = 0
         self.image_tick = 0
         self.images = (
-            pg.image.load('images/flower0.png').convert_alpha(),
-            pg.image.load('images/flower1.png').convert_alpha(),
-            pg.image.load('images/flower2.png').convert_alpha(),
-            pg.image.load('images/flower3.png').convert_alpha()
+            loaders.get_image('images/flower0.png').convert_alpha(),
+            loaders.get_image('images/flower1.png').convert_alpha(),
+            loaders.get_image('images/flower2.png').convert_alpha(),
+            loaders.get_image('images/flower3.png').convert_alpha()
         )
 
     def check_collision_with_player(self, core):

@@ -1,7 +1,8 @@
 import pygame as pg
 
-from Entity import Entity
-from Const import *
+from . import loaders
+from .Entity import Entity
+from .Const import *
 
 
 class Koopa(Entity):
@@ -19,9 +20,9 @@ class Koopa(Entity):
         self.current_image = 0
         self.image_tick = 0
         self.images = [
-            pg.image.load('images/koopa_0.png').convert_alpha(),
-            pg.image.load('images/koopa_1.png').convert_alpha(),
-            pg.image.load('images/koopa_dead.png').convert_alpha()
+            loaders.get_image('images/koopa_0.png').convert_alpha(),
+            loaders.get_image('images/koopa_1.png').convert_alpha(),
+            loaders.get_image('images/koopa_dead.png').convert_alpha()
         ]
         self.images.append(pg.transform.flip(self.images[0], 180, 0))
         self.images.append(pg.transform.flip(self.images[1], 180, 0))

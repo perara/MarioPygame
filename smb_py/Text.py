@@ -1,9 +1,11 @@
 import pygame as pg
 
+from smb_py import loaders
+
 
 class Text(object):
     def __init__(self, text, fontsize, rectcenter, font='Emulogic', textcolor = (255, 255, 255)):
-        self.font = pg.font.Font('fonts/emulogic.ttf', fontsize)
+        self.font = loaders.get_font('fonts/emulogic.ttf', fontsize)
         self.text = self.font.render(text, False, textcolor)
         self.rect = self.text.get_rect(center=rectcenter)
         self.y_offset = 0

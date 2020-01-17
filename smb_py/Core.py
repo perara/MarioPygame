@@ -3,10 +3,10 @@ from os import environ
 import pygame as pg
 from pygame.locals import *
 
-from Const import *
-from Map import Map
-from MenuManager import MenuManager
-from Sound import Sound
+from .Const import *
+from .Map import Map
+from .MenuManager import MenuManager
+from .Sound import Sound
 
 
 class Core(object):
@@ -20,7 +20,6 @@ class Core(object):
         pg.mixer.pre_init(44100, -16, 2, 1024)
         pg.init()
         pg.display.set_caption('Mario by S&D')
-        pg.display.set_mode((WINDOW_W, WINDOW_H))
 
         self.screen = pg.display.set_mode((WINDOW_W, WINDOW_H))
         self.clock = pg.time.Clock()

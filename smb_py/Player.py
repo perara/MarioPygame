@@ -1,6 +1,6 @@
 import pygame as pg
-
-from Const import *
+from smb_py import loaders
+from smb_py.Const import *
 
 
 class Player(object):
@@ -32,7 +32,7 @@ class Player(object):
         
         self.pos_x = x_pos
 
-        self.image = pg.image.load('images/mario/mario.png').convert_alpha()
+        self.image = loaders.get_image('images/mario/mario.png').convert_alpha()
         self.sprites = []
         self.load_sprites()
 
@@ -41,80 +41,80 @@ class Player(object):
     def load_sprites(self):
         self.sprites = [
             # 0 Small, stay
-            pg.image.load('images/Mario/mario.png'),
+            loaders.get_image('images/mario/mario.png'),
 
             # 1 Small, move 0
-            pg.image.load('images/Mario/mario_move0.png'),
+            loaders.get_image('images/mario/mario_move0.png'),
 
             # 2 Small, move 1
-            pg.image.load('images/Mario/mario_move1.png'),
+            loaders.get_image('images/mario/mario_move1.png'),
 
             # 3 Small, move 2
-            pg.image.load('images/Mario/mario_move2.png'),
+            loaders.get_image('images/mario/mario_move2.png'),
 
             # 4 Small, jump
-            pg.image.load('images/Mario/mario_jump.png'),
+            loaders.get_image('images/mario/mario_jump.png'),
 
             # 5 Small, end 0
-            pg.image.load('images/Mario/mario_end.png'),
+            loaders.get_image('images/mario/mario_end.png'),
 
             # 6 Small, end 1
-            pg.image.load('images/Mario/mario_end1.png'),
+            loaders.get_image('images/mario/mario_end1.png'),
 
             # 7 Small, stop
-            pg.image.load('images/Mario/mario_st.png'),
+            loaders.get_image('images/mario/mario_st.png'),
 
             # =============================================
 
             # 8 Big, stay
-            pg.image.load('images/Mario/mario1.png'),
+            loaders.get_image('images/mario/mario1.png'),
 
             # 9 Big, move 0
-            pg.image.load('images/Mario/mario1_move0.png'),
+            loaders.get_image('images/mario/mario1_move0.png'),
 
             # 10 Big, move 1
-            pg.image.load('images/Mario/mario1_move1.png'),
+            loaders.get_image('images/mario/mario1_move1.png'),
 
             # 11 Big, move 2
-            pg.image.load('images/Mario/mario1_move2.png'),
+            loaders.get_image('images/mario/mario1_move2.png'),
 
             # 12 Big, jump
-            pg.image.load('images/Mario/mario1_jump.png'),
+            loaders.get_image('images/mario/mario1_jump.png'),
 
             # 13 Big, end 0
-            pg.image.load('images/Mario/mario1_end.png'),
+            loaders.get_image('images/mario/mario1_end.png'),
 
             # 14 Big, end 1
-            pg.image.load('images/Mario/mario1_end1.png'),
+            loaders.get_image('images/mario/mario1_end1.png'),
 
             # 15 Big, stop
-            pg.image.load('images/Mario/mario1_st.png'),
+            loaders.get_image('images/mario/mario1_st.png'),
 
             # =============================================
 
             # 16 Big_fireball, stay
-            pg.image.load('images/Mario/mario2.png'),
+            loaders.get_image('images/mario/mario2.png'),
 
             # 17 Big_fireball, move 0
-            pg.image.load('images/Mario/mario2_move0.png'),
+            loaders.get_image('images/mario/mario2_move0.png'),
 
             # 18 Big_fireball, move 1
-            pg.image.load('images/Mario/mario2_move1.png'),
+            loaders.get_image('images/mario/mario2_move1.png'),
 
             # 19 Big_fireball, move 2
-            pg.image.load('images/Mario/mario2_move2.png'),
+            loaders.get_image('images/mario/mario2_move2.png'),
 
             # 20 Big_fireball, jump
-            pg.image.load('images/Mario/mario2_jump.png'),
+            loaders.get_image('images/mario/mario2_jump.png'),
 
             # 21 Big_fireball, end 0
-            pg.image.load('images/Mario/mario2_end.png'),
+            loaders.get_image('images/mario/mario2_end.png'),
 
             # 22 Big_fireball, end 1
-            pg.image.load('images/Mario/mario2_end1.png'),
+            loaders.get_image('images/mario/mario2_end1.png'),
 
             # 23 Big_fireball, stop
-            pg.image.load('images/Mario/mario2_st.png'),
+            loaders.get_image('images/mario/mario2_st.png'),
         ]
 
         # Left side
@@ -122,13 +122,13 @@ class Player(object):
             self.sprites.append(pg.transform.flip(self.sprites[i], 180, 0))
 
         # Power level changing, right
-        self.sprites.append(pg.image.load('images/Mario/mario_lvlup.png').convert_alpha())
+        self.sprites.append(loaders.get_image('images/mario/mario_lvlup.png').convert_alpha())
 
         # Power level changing, left
         self.sprites.append(pg.transform.flip(self.sprites[-1], 180, 0))
 
         # Death
-        self.sprites.append(pg.image.load('images/Mario/mario_death.png').convert_alpha())
+        self.sprites.append(loaders.get_image('images/mario/mario_death.png').convert_alpha())
 
     def update(self, core):
         self.player_physics(core)

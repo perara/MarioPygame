@@ -1,5 +1,7 @@
 import pygame as pg
 
+from smb_py import loaders
+
 
 class Flag(object):
     def __init__(self, x_pos, y_pos):
@@ -10,10 +12,10 @@ class Flag(object):
 
         # Flag object consists of 2 parts:
 
-        self.pillar_image = pg.image.load('images/flag_pillar.png').convert_alpha()
+        self.pillar_image = loaders.get_image('images/flag_pillar.png').convert_alpha()
         self.pillar_rect = pg.Rect(x_pos + 8, y_pos, 16, 304)
 
-        self.flag_image = pg.image.load('images/flag.png').convert_alpha()
+        self.flag_image = loaders.get_image('images/flag.png').convert_alpha()
         self.flag_rect = pg.Rect(x_pos - 18, y_pos + 16, 32, 32)
 
     def move_flag_down(self):

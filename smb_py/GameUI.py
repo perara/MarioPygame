@@ -1,9 +1,9 @@
-import pygame as pg
+from smb_py import loaders
 
 
 class GameUI(object):
     def __init__(self):
-        self.font = pg.font.Font('fonts/emulogic.ttf', 20)
+        self.font = loaders.get_font('fonts/emulogic.ttf', size=20)
         self.text = 'SCORE COINS WORLD TIME LIVES'
 
     def render(self, core):
